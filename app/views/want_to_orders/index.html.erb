@@ -16,8 +16,20 @@
 
       <% @want_to_orders.each do |want_to_order| %>
       <tr>
-        <td><%= want_to_order.user.username %></td>
-        <td><%= want_to_order.menu_item.item_name %></td>
+        <td>
+          <% if want_to_order.user.present? %>
+            <a href="/users/<%= want_to_order.user.id %>">
+              <%= want_to_order.user.username %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if want_to_order.menu_item.present? %>
+            <a href="/menu_items/<%= want_to_order.menu_item.id %>">
+              <%= want_to_order.menu_item.item_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/want_to_orders/<%= want_to_order.id %>" class="btn btn-primary">Show</a>
           <a href="/want_to_orders/<%= want_to_order.id %>/edit" class="btn btn-warning">Edit</a>

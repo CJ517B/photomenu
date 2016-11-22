@@ -21,7 +21,13 @@
       <dd><%= @menu_item.popularity %></dd>
 
       <dt>Menu</dt>
-      <dd><%= @menu_item.menu_id %></dd>
+      <dd>
+        <% if @menu_item.menu.present? %>
+          <a href="/menus/<%= @menu_item.menu_id %>">
+            <%= @menu_item.menu.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

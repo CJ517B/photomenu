@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @food_photo.user_id %></dd>
+      <dd>
+        <% if @food_photo.user.present? %>
+          <a href="/users/<%= @food_photo.user_id %>">
+            <%= @food_photo.user.username %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Menu item</dt>
-      <dd><%= @food_photo.menu_item_id %></dd>
+      <dd>
+        <% if @food_photo.menu_item.present? %>
+          <a href="/menu_items/<%= @food_photo.menu_item_id %>">
+            <%= @food_photo.menu_item.item_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Item review</dt>
       <dd><%= @food_photo.item_review %></dd>

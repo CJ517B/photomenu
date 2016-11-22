@@ -18,8 +18,20 @@
 
       <% @food_photos.each do |food_photo| %>
       <tr>
-        <td><%= food_photo.user.username %></td>
-        <td><%= food_photo.menu_item.item_name %></td>
+        <td>
+          <% if food_photo.user.present? %>
+            <a href="/users/<%= food_photo.user.id %>">
+              <%= food_photo.user.username %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if food_photo.menu_item.present? %>
+            <a href="/menu_items/<%= food_photo.menu_item.id %>">
+              <%= food_photo.menu_item.item_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= food_photo.item_review %></td>
         <td><%= food_photo.comment %></td>
         <td>
