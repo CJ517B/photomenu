@@ -1,6 +1,6 @@
 class WantToOrdersController < ApplicationController
   def index
-    @want_to_orders = WantToOrder.all
+    @want_to_orders = WantToOrder.page(params[:page]).per(10)
 
     render("want_to_orders/index.html.erb")
   end
