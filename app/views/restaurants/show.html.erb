@@ -47,3 +47,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Restaurant has many menu_listings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Menu_listings
+      </li>
+
+      <% @restaurant.menu_listings.each do |menu_listing| %>
+        <li class="list-group-item">
+          <a href="/menu_listings/<%= menu_listing.id %>">
+            <%= menu_listing.restaurant_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/menu_listings/<%= menu_listing.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/menu_listings/<%= menu_listing.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_menu_listing/<%= menu_listing.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Restaurant has many menus -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Menus
+      </li>
+
+      <% @restaurant.menus.each do |menu| %>
+        <li class="list-group-item">
+          <a href="/menus/<%= menu.id %>">
+            <%= menu.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/menus/<%= menu.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/menus/<%= menu.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_menu/<%= menu.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -38,3 +38,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Menu item has many photos -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Photos
+      </li>
+
+      <% @menu_item.photos.each do |food_photo| %>
+        <li class="list-group-item">
+          <a href="/food_photos/<%= food_photo.id %>">
+            <%= food_photo.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/food_photos/<%= food_photo.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/food_photos/<%= food_photo.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_food_photo/<%= food_photo.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Menu item has many want_to_orders -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Want_to_orders
+      </li>
+
+      <% @menu_item.want_to_orders.each do |want_to_order| %>
+        <li class="list-group-item">
+          <a href="/want_to_orders/<%= want_to_order.id %>">
+            <%= want_to_order.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/want_to_orders/<%= want_to_order.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/want_to_orders/<%= want_to_order.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_want_to_order/<%= want_to_order.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
