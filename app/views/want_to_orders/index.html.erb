@@ -16,7 +16,7 @@
 
       <% @want_to_orders.each do |want_to_order| %>
       <tr>
-        <td><%= want_to_order.user_id %></td>
+        <td><%= want_to_order.user.username %></td>
         <td><%= want_to_order.menu_item_id %></td>
         <td>
           <a href="/want_to_orders/<%= want_to_order.id %>" class="btn btn-primary">Show</a>
