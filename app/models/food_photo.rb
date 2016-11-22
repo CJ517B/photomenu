@@ -1,6 +1,8 @@
 class FoodPhoto < ApplicationRecord
   # Direct associations
 
+  belongs_to :menu_item
+
   belongs_to :user
 
   # Indirect associations
