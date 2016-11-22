@@ -9,6 +9,10 @@ class Menu < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :restaurants,
+             :through => :menu_listings,
+             :source => :restaurant
+
   # Validations
 
 end

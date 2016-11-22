@@ -6,6 +6,10 @@ class Restaurant < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :menus,
+             :through => :menu_listings,
+             :source => :menu
+
   # Validations
 
   validates :name, :uniqueness => { :scope => [:street] }
