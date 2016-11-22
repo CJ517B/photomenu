@@ -5,4 +5,6 @@ class MenuItem < ApplicationRecord
 
   # Validations
 
+  validates :item_name, :presence => true
+
 end
