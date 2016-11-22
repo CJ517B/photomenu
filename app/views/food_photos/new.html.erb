@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @food_photo.errors.any? %>
+  <% @food_photo.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Food Photo</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_food_photo" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @food_photo.user_id %>">
+      </div>
+
+      <!-- Label and input for menu_item_id -->
+      <div class="form-group">
+        <label for="menu_item_id" class="control-label">
+          Menu item
+        </label>
+
+        <input type="text" id="menu_item_id" name="menu_item_id" placeholder="Menu item" class="form-control" value="<%= @food_photo.menu_item_id %>">
+      </div>
+
+      <!-- Label and input for item_review -->
+      <div class="form-group">
+        <label for="item_review" class="control-label">
+          Item review
+        </label>
+
+        <input type="text" id="item_review" name="item_review" placeholder="Item review" class="form-control" value="<%= @food_photo.item_review %>">
+      </div>
+
+      <!-- Label and input for comment -->
+      <div class="form-group">
+        <label for="comment" class="control-label">
+          Comment
+        </label>
+
+        <input type="text" id="comment" name="comment" placeholder="Comment" class="form-control" value="<%= @food_photo.comment %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Food Photo
+      </button>
+      or
+      <a href="/food_photos">Cancel</a>
+    </form>
+  </div>
+</div>
