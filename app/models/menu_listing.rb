@@ -5,4 +5,6 @@ class MenuListing < ApplicationRecord
 
   # Validations
 
+  validates :restaurant_id, :presence => true
+
 end
