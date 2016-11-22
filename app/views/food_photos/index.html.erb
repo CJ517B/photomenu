@@ -19,7 +19,7 @@
       <% @food_photos.each do |food_photo| %>
       <tr>
         <td><%= food_photo.user.username %></td>
-        <td><%= food_photo.menu_item_id %></td>
+        <td><%= food_photo.menu_item.item_name %></td>
         <td><%= food_photo.item_review %></td>
         <td><%= food_photo.comment %></td>
         <td>
