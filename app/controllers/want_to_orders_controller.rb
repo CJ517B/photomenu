@@ -1,6 +1,7 @@
 class WantToOrdersController < ApplicationController
   def index
-    @want_to_orders = WantToOrder.page(params[:page]).per(10)
+    @q = WantToOrder.ransack(params[:q])
+    @want_to_orders = @q.result(:distinct => true).includes(:user, :menu_item).page(params[:page]).per(10)
 
     render("want_to_orders/index.html.erb")
   end
