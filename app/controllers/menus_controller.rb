@@ -1,14 +1,14 @@
 class MenusController < ApplicationController
   def index
     @q = Menu.ransack(params[:q])
-    @menus = @q.result(:distinct => true).includes(:menu_listings, :menu_items, :restaurants).page(params[:page]).per(10)
+    @menus = @q.result(:distinct => true).includes(:menu_items, :menu_listings, :restaurants).page(params[:page]).per(10)
 
     render("menus/index.html.erb")
   end
 
   def show
-    @menu_item = MenuItem.new
     @menu_listing = MenuListing.new
+    @menu_item = MenuItem.new
     @menu = Menu.find(params[:id])
 
     render("menus/show.html.erb")
