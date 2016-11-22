@@ -1,6 +1,8 @@
 class MenuItem < ApplicationRecord
   # Direct associations
 
+  belongs_to :menu
+
   has_many   :want_to_orders,
              :dependent => :destroy
 
