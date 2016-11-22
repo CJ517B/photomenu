@@ -33,7 +33,7 @@
           Menu item
         </label>
 
-        <input type="text" id="menu_item_id" name="menu_item_id" placeholder="Menu item" class="form-control" value="<%= @food_photo.menu_item_id %>">
+        <%= select_tag(:menu_item_id, options_from_collection_for_select(MenuItem.all, :id, :item_name, @food_photo.menu_item_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for item_review -->
