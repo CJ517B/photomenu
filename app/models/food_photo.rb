@@ -5,4 +5,6 @@ class FoodPhoto < ApplicationRecord
 
   # Validations
 
+  validates :menu_item_id, :presence => true
+
 end
