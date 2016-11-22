@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @want_to_order = WantToOrder.new
+    @food_photo = FoodPhoto.new
     @user = User.find(params[:id])
 
     render("users/show.html.erb")

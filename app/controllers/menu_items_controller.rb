@@ -6,6 +6,8 @@ class MenuItemsController < ApplicationController
   end
 
   def show
+    @want_to_order = WantToOrder.new
+    @food_photo = FoodPhoto.new
     @menu_item = MenuItem.find(params[:id])
 
     render("menu_items/show.html.erb")

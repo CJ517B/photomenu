@@ -66,6 +66,53 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_food_photo" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for menu_item_id -->
+      <div class="form-group">
+        <label for="menu_item_id" class="control-label">
+          Menu item
+        </label>
+
+        <%= select_tag(:menu_item_id, options_from_collection_for_select(MenuItem.all, :id, :item_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for item_review -->
+      <div class="form-group">
+        <label for="item_review" class="control-label">
+          Item review
+        </label>
+
+        <input type="text" id="item_review" name="item_review" placeholder="Item review" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for comment -->
+      <div class="form-group">
+        <label for="comment" class="control-label">
+          Comment
+        </label>
+
+        <input type="text" id="comment" name="comment" placeholder="Comment" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Food Photo
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -97,6 +144,35 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_want_to_order" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for menu_item_id -->
+      <div class="form-group">
+        <label for="menu_item_id" class="control-label">
+          Menu item
+        </label>
+
+        <%= select_tag(:menu_item_id, options_from_collection_for_select(MenuItem.all, :id, :item_name), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Want To Order
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
