@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "users#index"
   # Routes for the Want_to_order resource:
   # CREATE
   get "/want_to_orders/new", :controller => "want_to_orders", :action => "new"
