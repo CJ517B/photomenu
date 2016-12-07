@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207052140) do
+ActiveRecord::Schema.define(version: 20161207061403) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20161207052140) do
 
   create_table "menus", force: :cascade do |t|
     t.integer  "restaurant_id"
-    t.integer  "menu_name"
+    t.string   "menu_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

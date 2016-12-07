@@ -10,7 +10,7 @@ class Menu < ApplicationRecord
 
   # Validations
 
-  validates :menu_name, :presence => true
+  validates :menu_name, :presence => true, :uniqueness => { :scope => [:restaurant_id] }
 
   validates :restaurant_id, :presence => true
 
