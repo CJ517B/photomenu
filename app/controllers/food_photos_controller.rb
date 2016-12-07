@@ -25,6 +25,7 @@ class FoodPhotosController < ApplicationController
     @food_photo.menu_item_id = params[:menu_item_id]
     @food_photo.item_review = params[:item_review]
     @food_photo.comment = params[:comment]
+    @food_photo.photo = params[:photo]
 
     save_status = @food_photo.save
 

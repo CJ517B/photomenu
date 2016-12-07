@@ -5,6 +5,8 @@ class FoodPhoto < ApplicationRecord
 
   belongs_to :user
 
+  mount_uploader :photo, PhotoUploader
+
   # Indirect associations
 
   # Validations

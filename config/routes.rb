@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
-  root :to => "users#index"
+  root :to => "restaurants#index"
   # Routes for the Bookmark resource:
   # CREATE
   get "/bookmarks/new", :controller => "bookmarks", :action => "new"
