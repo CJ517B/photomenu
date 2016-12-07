@@ -3,7 +3,7 @@ class CreateFoodPhotos < ActiveRecord::Migration
     create_table :food_photos do |t|
       t.integer :user_id
       t.integer :menu_item_id
-      t.string :item_review
+      t.integer :item_review
       t.string :comment
 
       t.timestamps

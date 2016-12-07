@@ -11,9 +11,8 @@
       <tr>
         <th>Item name</th>
         <th>Price</th>
-        <th>Tags</th>
         <th>Average review</th>
-        <th>Popularity</th>
+        <th>Category name</th>
         <th>Menu</th>
         <th>Actions</th>
       </tr>
@@ -22,13 +21,12 @@
       <tr>
         <td><%= menu_item.item_name %></td>
         <td><%= menu_item.price %></td>
-        <td><%= menu_item.tags %></td>
         <td><%= menu_item.average_review %></td>
-        <td><%= menu_item.popularity %></td>
+        <td><%= menu_item.category_name %></td>
         <td>
           <% if menu_item.menu.present? %>
             <a href="/menus/<%= menu_item.menu.id %>">
-              <%= menu_item.menu.name %>
+              <%= menu_item.menu.restaurant_id %>
             </a>
           <% end %>
         </td>

@@ -7,7 +7,7 @@ class MenuItemsController < ApplicationController
   end
 
   def show
-    @want_to_order = WantToOrder.new
+    @bookmark = Bookmark.new
     @food_photo = FoodPhoto.new
     @menu_item = MenuItem.find(params[:id])
 
@@ -25,9 +25,8 @@ class MenuItemsController < ApplicationController
 
     @menu_item.item_name = params[:item_name]
     @menu_item.price = params[:price]
-    @menu_item.tags = params[:tags]
     @menu_item.average_review = params[:average_review]
-    @menu_item.popularity = params[:popularity]
+    @menu_item.category_name = params[:category_name]
     @menu_item.menu_id = params[:menu_id]
 
     save_status = @menu_item.save
@@ -57,9 +56,8 @@ class MenuItemsController < ApplicationController
 
     @menu_item.item_name = params[:item_name]
     @menu_item.price = params[:price]
-    @menu_item.tags = params[:tags]
     @menu_item.average_review = params[:average_review]
-    @menu_item.popularity = params[:popularity]
+    @menu_item.category_name = params[:category_name]
     @menu_item.menu_id = params[:menu_id]
 
     save_status = @menu_item.save

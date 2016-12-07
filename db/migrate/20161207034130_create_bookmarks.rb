@@ -1,6 +1,6 @@
-class CreateWantToOrders < ActiveRecord::Migration
+class CreateBookmarks < ActiveRecord::Migration
   def change
-    create_table :want_to_orders do |t|
+    create_table :bookmarks do |t|
       t.integer :user_id
       t.integer :menu_item_id
 

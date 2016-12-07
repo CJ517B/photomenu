@@ -1,38 +1,21 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root :to => "users#index"
-  # Routes for the Want_to_order resource:
+  # Routes for the Bookmark resource:
   # CREATE
-  get "/want_to_orders/new", :controller => "want_to_orders", :action => "new"
-  post "/create_want_to_order", :controller => "want_to_orders", :action => "create"
+  get "/bookmarks/new", :controller => "bookmarks", :action => "new"
+  post "/create_bookmark", :controller => "bookmarks", :action => "create"
 
   # READ
-  get "/want_to_orders", :controller => "want_to_orders", :action => "index"
-  get "/want_to_orders/:id", :controller => "want_to_orders", :action => "show"
+  get "/bookmarks", :controller => "bookmarks", :action => "index"
+  get "/bookmarks/:id", :controller => "bookmarks", :action => "show"
 
   # UPDATE
-  get "/want_to_orders/:id/edit", :controller => "want_to_orders", :action => "edit"
-  post "/update_want_to_order/:id", :controller => "want_to_orders", :action => "update"
+  get "/bookmarks/:id/edit", :controller => "bookmarks", :action => "edit"
+  post "/update_bookmark/:id", :controller => "bookmarks", :action => "update"
 
   # DELETE
-  get "/delete_want_to_order/:id", :controller => "want_to_orders", :action => "destroy"
-  #------------------------------
-
-  # Routes for the Menu resource:
-  # CREATE
-  get "/menus/new", :controller => "menus", :action => "new"
-  post "/create_menu", :controller => "menus", :action => "create"
-
-  # READ
-  get "/menus", :controller => "menus", :action => "index"
-  get "/menus/:id", :controller => "menus", :action => "show"
-
-  # UPDATE
-  get "/menus/:id/edit", :controller => "menus", :action => "edit"
-  post "/update_menu/:id", :controller => "menus", :action => "update"
-
-  # DELETE
-  get "/delete_menu/:id", :controller => "menus", :action => "destroy"
+  get "/delete_bookmark/:id", :controller => "bookmarks", :action => "destroy"
   #------------------------------
 
   # Routes for the Food_photo resource:
@@ -52,21 +35,21 @@ Rails.application.routes.draw do
   get "/delete_food_photo/:id", :controller => "food_photos", :action => "destroy"
   #------------------------------
 
-  # Routes for the Menu_listing resource:
+  # Routes for the Menu resource:
   # CREATE
-  get "/menu_listings/new", :controller => "menu_listings", :action => "new"
-  post "/create_menu_listing", :controller => "menu_listings", :action => "create"
+  get "/menus/new", :controller => "menus", :action => "new"
+  post "/create_menu", :controller => "menus", :action => "create"
 
   # READ
-  get "/menu_listings", :controller => "menu_listings", :action => "index"
-  get "/menu_listings/:id", :controller => "menu_listings", :action => "show"
+  get "/menus", :controller => "menus", :action => "index"
+  get "/menus/:id", :controller => "menus", :action => "show"
 
   # UPDATE
-  get "/menu_listings/:id/edit", :controller => "menu_listings", :action => "edit"
-  post "/update_menu_listing/:id", :controller => "menu_listings", :action => "update"
+  get "/menus/:id/edit", :controller => "menus", :action => "edit"
+  post "/update_menu/:id", :controller => "menus", :action => "update"
 
   # DELETE
-  get "/delete_menu_listing/:id", :controller => "menu_listings", :action => "destroy"
+  get "/delete_menu/:id", :controller => "menus", :action => "destroy"
   #------------------------------
 
   # Routes for the Restaurant resource:

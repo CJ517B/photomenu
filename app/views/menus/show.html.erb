@@ -5,11 +5,17 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Name</dt>
-      <dd><%= @menu.name %></dd>
+      <dt>Restaurant</dt>
+      <dd>
+        <% if @menu.restaurant.present? %>
+          <a href="/restaurants/<%= @menu.restaurant_id %>">
+            <%= @menu.restaurant.name %>
+          </a>
+        <% end %>
+      </dd>
 
-      <dt>Category</dt>
-      <dd><%= @menu.category %></dd>
+      <dt>Menu name</dt>
+      <dd><%= @menu.menu_name %></dd>
 
     </dl>
 
@@ -24,60 +30,6 @@
         Delete
       </a>
     </div>
-  </div>
-</div>
-
-<!-- A Menu has many menu_listings -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Menu_listings
-      </li>
-
-      <% @menu.menu_listings.each do |menu_listing| %>
-        <li class="list-group-item">
-          <a href="/menu_listings/<%= menu_listing.id %>">
-            <%= menu_listing.restaurant_id %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/menu_listings/<%= menu_listing.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/menu_listings/<%= menu_listing.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_menu_listing/<%= menu_listing.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
-
-      <li class="list-group-item">
-        <form action="/create_menu_listing" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for restaurant_id -->
-      <div class="form-group">
-        <label for="restaurant_id" class="control-label">
-          Restaurant
-        </label>
-
-        <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.all, :id, :name), :class => "form-control") %>
-      </div>
-
-      <!-- Label and input for menu_id -->
-      <input type="hidden" name="menu_id" value="<%= @menu.id %>">
-
-      <button class="btn btn-block btn-success">
-        Create Menu Listing
-      </button>
-    </form>
-      </li>
-    </ul>
   </div>
 </div>
 
@@ -132,15 +84,6 @@
         <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="">
       </div>
 
-      <!-- Label and input for tags -->
-      <div class="form-group">
-        <label for="tags" class="control-label">
-          Tags
-        </label>
-
-        <input type="text" id="tags" name="tags" placeholder="Tags" class="form-control" value="">
-      </div>
-
       <!-- Label and input for average_review -->
       <div class="form-group">
         <label for="average_review" class="control-label">
@@ -150,13 +93,13 @@
         <input type="text" id="average_review" name="average_review" placeholder="Average review" class="form-control" value="">
       </div>
 
-      <!-- Label and input for popularity -->
+      <!-- Label and input for category_name -->
       <div class="form-group">
-        <label for="popularity" class="control-label">
-          Popularity
+        <label for="category_name" class="control-label">
+          Category name
         </label>
 
-        <input type="text" id="popularity" name="popularity" placeholder="Popularity" class="form-control" value="">
+        <input type="text" id="category_name" name="category_name" placeholder="Category name" class="form-control" value="">
       </div>
 
       <!-- Label and input for menu_id -->
@@ -167,37 +110,6 @@
       </button>
     </form>
       </li>
-    </ul>
-  </div>
-</div>
-
-<!-- A Menu has many restaurants -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Restaurants
-      </li>
-
-      <% @menu.restaurants.each do |restaurant| %>
-        <li class="list-group-item">
-          <a href="/restaurants/<%= restaurant.id %>">
-            <%= restaurant.name %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/restaurants/<%= restaurant.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/restaurants/<%= restaurant.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_restaurant/<%= restaurant.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
     </ul>
   </div>
 </div>

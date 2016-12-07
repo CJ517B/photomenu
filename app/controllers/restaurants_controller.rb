@@ -1,13 +1,13 @@
 class RestaurantsController < ApplicationController
   def index
     @q = Restaurant.ransack(params[:q])
-    @restaurants = @q.result(:distinct => true).includes(:menu_listings, :menus).page(params[:page]).per(10)
+    @restaurants = @q.result(:distinct => true).includes(:menu_listings).page(params[:page]).per(10)
 
     render("restaurants/index.html.erb")
   end
 
   def show
-    @menu_listing = MenuListing.new
+    @menu = Menu.new
     @restaurant = Restaurant.find(params[:id])
 
     render("restaurants/show.html.erb")
@@ -23,12 +23,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
 
     @restaurant.name = params[:name]
-    @restaurant.street = params[:street]
-    @restaurant.city = params[:city]
-    @restaurant.neighborhood = params[:neighborhood]
-    @restaurant.state = params[:state]
-    @restaurant.country = params[:country]
-    @restaurant.zipcode = params[:zipcode]
+    @restaurant.address = params[:address]
     @restaurant.cover_photo = params[:cover_photo]
     @restaurant.description = params[:description]
 
@@ -58,12 +53,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
 
     @restaurant.name = params[:name]
-    @restaurant.street = params[:street]
-    @restaurant.city = params[:city]
-    @restaurant.neighborhood = params[:neighborhood]
-    @restaurant.state = params[:state]
-    @restaurant.country = params[:country]
-    @restaurant.zipcode = params[:zipcode]
+    @restaurant.address = params[:address]
     @restaurant.cover_photo = params[:cover_photo]
     @restaurant.description = params[:description]
 

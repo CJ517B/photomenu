@@ -1,4 +1,4 @@
-class WantToOrder < ApplicationRecord
+class Bookmark < ApplicationRecord
   # Direct associations
 
   belongs_to :menu_item
