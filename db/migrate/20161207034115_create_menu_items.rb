@@ -3,9 +3,8 @@ class CreateMenuItems < ActiveRecord::Migration
     create_table :menu_items do |t|
       t.string :item_name
       t.string :price
-      t.string :tags
       t.string :average_review
-      t.string :popularity
+      t.integer :category_name
       t.integer :menu_id
 
       t.timestamps

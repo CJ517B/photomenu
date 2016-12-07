@@ -1,14 +1,13 @@
 class MenusController < ApplicationController
   def index
     @q = Menu.ransack(params[:q])
-    @menus = @q.result(:distinct => true).includes(:menu_listings, :menu_items, :restaurants).page(params[:page]).per(10)
+    @menus = @q.result(:distinct => true).includes(:restaurant, :menu_items).page(params[:page]).per(10)
 
     render("menus/index.html.erb")
   end
 
   def show
     @menu_item = MenuItem.new
-    @menu_listing = MenuListing.new
     @menu = Menu.find(params[:id])
 
     render("menus/show.html.erb")
@@ -23,8 +22,8 @@ class MenusController < ApplicationController
   def create
     @menu = Menu.new
 
-    @menu.name = params[:name]
-    @menu.category = params[:category]
+    @menu.restaurant_id = params[:restaurant_id]
+    @menu.menu_name = params[:menu_name]
 
     save_status = @menu.save
 
@@ -51,8 +50,8 @@ class MenusController < ApplicationController
   def update
     @menu = Menu.find(params[:id])
 
-    @menu.name = params[:name]
-    @menu.category = params[:category]
+    @menu.restaurant_id = params[:restaurant_id]
+    @menu.menu_name = params[:menu_name]
 
     save_status = @menu.save
 

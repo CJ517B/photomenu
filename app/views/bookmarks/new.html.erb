@@ -1,6 +1,6 @@
 <!-- Validation failure messages -->
-<% if @want_to_order.errors.any? %>
-  <% @want_to_order.errors.full_messages.each do |message| %>
+<% if @bookmark.errors.any? %>
+  <% @bookmark.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <%= message %>
@@ -9,12 +9,12 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Add Want To Order</h3>
+  <h3>Add Bookmark</h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/create_want_to_order" method="post">
+    <form action="/create_bookmark" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -24,7 +24,7 @@
           User
         </label>
 
-        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username, @want_to_order.user_id), :class => "form-control") %>
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username, @bookmark.user_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for menu_item_id -->
@@ -33,14 +33,14 @@
           Menu item
         </label>
 
-        <%= select_tag(:menu_item_id, options_from_collection_for_select(MenuItem.all, :id, :item_name, @want_to_order.menu_item_id), :class => "form-control") %>
+        <%= select_tag(:menu_item_id, options_from_collection_for_select(MenuItem.all, :id, :item_name, @bookmark.menu_item_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
-        Create Want To Order
+        Create Bookmark
       </button>
       or
-      <a href="/want_to_orders">Cancel</a>
+      <a href="/bookmarks">Cancel</a>
     </form>
   </div>
 </div>

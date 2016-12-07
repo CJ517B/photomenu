@@ -4,15 +4,14 @@ class Menu < ApplicationRecord
   has_many   :menu_items,
              :dependent => :destroy
 
-  has_many   :menu_listings,
-             :dependent => :destroy
+  belongs_to :restaurant
 
   # Indirect associations
 
-  has_many   :restaurants,
-             :through => :menu_listings,
-             :source => :restaurant
-
   # Validations
+
+  validates :menu_name, :presence => true
+
+  validates :restaurant_id, :presence => true
 
 end

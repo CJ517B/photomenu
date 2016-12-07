@@ -18,22 +18,22 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for name -->
+      <!-- Label and input for restaurant_id -->
       <div class="form-group">
-        <label for="name" class="control-label">
-          Name
+        <label for="restaurant_id" class="control-label">
+          Restaurant
         </label>
 
-        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @menu.name %>">
+        <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.all, :id, :name, @menu.restaurant_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for category -->
+      <!-- Label and input for menu_name -->
       <div class="form-group">
-        <label for="category" class="control-label">
-          Category
+        <label for="menu_name" class="control-label">
+          Menu name
         </label>
 
-        <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @menu.category %>">
+        <input type="text" id="menu_name" name="menu_name" placeholder="Menu name" class="form-control" value="<%= @menu.menu_name %>">
       </div>
 
       <button class="btn btn-success">

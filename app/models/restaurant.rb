@@ -2,17 +2,16 @@ class Restaurant < ApplicationRecord
   # Direct associations
 
   has_many   :menu_listings,
+             :class_name => "Menu",
              :dependent => :destroy
 
   # Indirect associations
 
-  has_many   :menus,
-             :through => :menu_listings,
-             :source => :menu
-
   # Validations
 
-  validates :name, :uniqueness => { :scope => [:street] }
+  validates :address, :presence => true
+
+  validates :name, :uniqueness => { :scope => [:address] }
 
   validates :name, :presence => true
 

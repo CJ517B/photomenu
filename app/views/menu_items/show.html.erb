@@ -11,20 +11,17 @@
       <dt>Price</dt>
       <dd><%= @menu_item.price %></dd>
 
-      <dt>Tags</dt>
-      <dd><%= @menu_item.tags %></dd>
-
       <dt>Average review</dt>
       <dd><%= @menu_item.average_review %></dd>
 
-      <dt>Popularity</dt>
-      <dd><%= @menu_item.popularity %></dd>
+      <dt>Category name</dt>
+      <dd><%= @menu_item.category_name %></dd>
 
       <dt>Menu</dt>
       <dd>
         <% if @menu_item.menu.present? %>
           <a href="/menus/<%= @menu_item.menu_id %>">
-            <%= @menu_item.menu.name %>
+            <%= @menu_item.menu.restaurant_id %>
           </a>
         <% end %>
       </dd>
@@ -132,19 +129,19 @@
         Want_to_orders
       </li>
 
-      <% @menu_item.want_to_orders.each do |want_to_order| %>
+      <% @menu_item.want_to_orders.each do |bookmark| %>
         <li class="list-group-item">
-          <a href="/want_to_orders/<%= want_to_order.id %>">
-            <%= want_to_order.created_at %>
+          <a href="/bookmarks/<%= bookmark.id %>">
+            <%= bookmark.created_at %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
-            <a href="/want_to_orders/<%= want_to_order.id %>" class="btn btn-primary">
+            <a href="/bookmarks/<%= bookmark.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/want_to_orders/<%= want_to_order.id %>/edit" class="btn btn-warning">
+            <a href="/bookmarks/<%= bookmark.id %>/edit" class="btn btn-warning">
               <i class="fa fa-edit"></i>
             </a>
-            <a href="/delete_want_to_order/<%= want_to_order.id %>" class="btn btn-danger" rel="nofollow">
+            <a href="/delete_bookmark/<%= bookmark.id %>" class="btn btn-danger" rel="nofollow">
               <i class="fa fa-trash-o"></i>
             </a>
           </div>
@@ -152,7 +149,7 @@
       <% end %>
 
       <li class="list-group-item">
-        <form action="/create_want_to_order" method="post">
+        <form action="/create_bookmark" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -175,7 +172,7 @@
       </div>
 
       <button class="btn btn-block btn-success">
-        Create Want To Order
+        Create Bookmark
       </button>
     </form>
       </li>

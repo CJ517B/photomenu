@@ -8,23 +8,8 @@
       <dt>Name</dt>
       <dd><%= @restaurant.name %></dd>
 
-      <dt>Street</dt>
-      <dd><%= @restaurant.street %></dd>
-
-      <dt>City</dt>
-      <dd><%= @restaurant.city %></dd>
-
-      <dt>Neighborhood</dt>
-      <dd><%= @restaurant.neighborhood %></dd>
-
-      <dt>State</dt>
-      <dd><%= @restaurant.state %></dd>
-
-      <dt>Country</dt>
-      <dd><%= @restaurant.country %></dd>
-
-      <dt>Zipcode</dt>
-      <dd><%= @restaurant.zipcode %></dd>
+      <dt>Address</dt>
+      <dd><%= @restaurant.address %></dd>
 
       <dt>Cover photo</dt>
       <dd><%= @restaurant.cover_photo %></dd>
@@ -57,64 +42,10 @@
         Menu_listings
       </li>
 
-      <% @restaurant.menu_listings.each do |menu_listing| %>
-        <li class="list-group-item">
-          <a href="/menu_listings/<%= menu_listing.id %>">
-            <%= menu_listing.restaurant_id %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/menu_listings/<%= menu_listing.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/menu_listings/<%= menu_listing.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_menu_listing/<%= menu_listing.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
-
-      <li class="list-group-item">
-        <form action="/create_menu_listing" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for restaurant_id -->
-      <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
-
-      <!-- Label and input for menu_id -->
-      <div class="form-group">
-        <label for="menu_id" class="control-label">
-          Menu
-        </label>
-
-        <%= select_tag(:menu_id, options_from_collection_for_select(Menu.all, :id, :name), :class => "form-control") %>
-      </div>
-
-      <button class="btn btn-block btn-success">
-        Create Menu Listing
-      </button>
-    </form>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<!-- A Restaurant has many menus -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Menus
-      </li>
-
-      <% @restaurant.menus.each do |menu| %>
+      <% @restaurant.menu_listings.each do |menu| %>
         <li class="list-group-item">
           <a href="/menus/<%= menu.id %>">
-            <%= menu.name %>
+            <%= menu.restaurant_id %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/menus/<%= menu.id %>" class="btn btn-primary">
@@ -129,6 +60,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_menu" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for restaurant_id -->
+      <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
+
+      <!-- Label and input for menu_name -->
+      <div class="form-group">
+        <label for="menu_name" class="control-label">
+          Menu name
+        </label>
+
+        <input type="text" id="menu_name" name="menu_name" placeholder="Menu name" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Menu
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
