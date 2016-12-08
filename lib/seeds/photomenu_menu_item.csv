@@ -1,38 +1,107 @@
-restaurant_id,menu_id,category,item_name,description,price
-2,9,Starter,Local Burrata,"marinated werp farm beets, mache, heirloom tomatoes, sweet miso vinaigrette, ohba",16
-2,9,Starter,"The Dearborn ""Meze"" Plate","grape leaves, eggplant dip, white bean hummus, marinated tomato salad",15
-2,9,Starter,BEEF TONGUE 'CARPACCIO',"grapes, celery root, gala apples, port wine reduction, parmesan reggiano",14
-2,9,Starter,CONFIT SPANISH OCTOPUS,"black olives, capers, tomatoes, goat cheese preserved lemon and smoked paprika vinaigrette",16
-2,9,Starter,STEAMED MUSSELS,"'nduja, wine-butter, fresh herbs, grilled bread",15
-2,9,Starter,PORK & LAMB MEATBALLS,"fresh tomato pomodoro, shirred egg, feta, garlic toast",14
-2,9,Starter,ROASTED MARROW OF BEEF,"country bread, pea shoot & radish salad, parmesan gratin",16
-2,9,Starter,MIDWEST FRIED CHICKEN,"maple mustard glaze, hot sauce, pickles",14
-2,9,Starter,SOUP OF THE DAY (Cup),ask to hear more about the tasty details,7
-2,9,Starter,SOUP OF THE DAY (Bowl),ask to hear more about the tasty details,12
-2,9,Salads,LITTLE GEM CAESAR,"big eye tuna, boquerones, creamy egg dressing, buttered croutons, parmesan",16
-2,9,Salads,LYONNAISE,"poached egg, marinated mushrooms, frisee, roasted garlic-mustard seed vinaigrette, bacon",12
-2,9,Salads,MARKET SALAD,hand-selected local finds from market today,11
-2,9,The Bar is Raw,CEVICHE,shrimp & octopus,10
-2,9,The Bar is Raw,Oyster (dozen),cucumber mignonette & bloody mary cocktail sauce,35
-2,9,The Bar is Raw,COCKTAIL - Shrimp,,24
-2,9,The Bar is Raw,COCKTAIL - King Crab,,50
-2,9,The Bar is Raw,CAVIAR (28g),"pork rinds, creme fraiche, potted chervil and a bottle of vodka - ask your server for details",MP
-2,9,The Bar is Raw,SEAFOOD TOWER,The Fleet,85
-2,9,The Bar is Raw,SEAFOOD TOWER,The Armada,145
-2,9,BUTCHER 'BLOCK 37',HAMACHI COLLAR,Grilled,24
-2,9,BUTCHER 'BLOCK 37',PORK BELLY,Honey-glazed,22
-2,9,BUTCHER 'BLOCK 37',50-DAY DRY AGED RIBEYE,12oz,49
-2,9,BUTCHER 'BLOCK 37',TOMAHAWK VEAL CHOP,14oz,59
-2,9,MAINS,PAN-ROASTED STONE BASS,"ginger rice, baby turnips, shiitake mushrooms, aromatic broth",27
-2,9,MAINS,BEEF OXTAILS,"heirloom cornmeal polenta, wilted spinach, pickled ramp gremolata, house made chorizo",30
-2,9,MAINS,BLACK TRUFFLE CAPPELLETTI,"cheese and truffle-filled egg pasta, chanterelle mushrooms, sugar snap peas, corn, herb butter",21
-2,9,MAINS,DRY AGED DUCK BREAST,"panzanella bread, grilled stone fruit, dandelion greens, red wine gastrique",32
-2,9,MAINS,RABBIT & CURRY POT PIE,"confit rabbit, mushroom, peas, curry sauce, fluffy pastry crust",14
-2,9,MAINS,FISH & CHIPS,"beer-battered pacific cod, housemade fries, tartar sauce, malt vinegar",18
-2,9,BURGERS,THE DEARBORN BURGER,"wagyu grind, cheddar, boston bibb, pickle, special sauce, brioche bun",16
-2,9,BURGERS,BISON BURGER,"cambozola cheese, mushrooms and onions, dijonnaise, seeded bun",21
-2,9,SIDES,BRUSSEL SPROUTS,"bacon, parmesan, lemon-fish vinaigrette",7
-2,9,SIDES,MASHED POTATOES,"sea salt, really good butter (add glace de poulet......aka gravy for $2)",7
-2,9,SIDES,CREAMED SPINACH,"pancetta bread crumbs, parmesan",7
-2,9,SIDES,HOUSEMADE FRENCH FRIES,"ketchup, chive buttermilk",7
-2,9,SIDES,ROASTED MUSHROOMS,"sherry, butter, thyme",7
+restaurant_id,menu_id,menu_category_id,category_id,category,item_name,description,price
+2,9,1,1,Starter,Local Burrata,"marinated werp farm beets, mache, heirloom tomatoes, sweet miso vinaigrette, ohba",16
+2,9,1,1,Starter,"The Dearborn ""Meze"" Plate","grape leaves, eggplant dip, white bean hummus, marinated tomato salad",15
+2,9,1,1,Starter,BEEF TONGUE 'CARPACCIO',"grapes, celery root, gala apples, port wine reduction, parmesan reggiano",14
+2,9,1,1,Starter,CONFIT SPANISH OCTOPUS,"black olives, capers, tomatoes, goat cheese preserved lemon and smoked paprika vinaigrette",16
+2,9,1,1,Starter,STEAMED MUSSELS,"'nduja, wine-butter, fresh herbs, grilled bread",15
+2,9,1,1,Starter,PORK & LAMB MEATBALLS,"fresh tomato pomodoro, shirred egg, feta, garlic toast",14
+2,9,1,1,Starter,ROASTED MARROW OF BEEF,"country bread, pea shoot & radish salad, parmesan gratin",16
+2,9,1,1,Starter,MIDWEST FRIED CHICKEN,"maple mustard glaze, hot sauce, pickles",14
+2,9,1,1,Starter,SOUP OF THE DAY (Cup),ask to hear more about the tasty details,7
+2,9,1,1,Starter,SOUP OF THE DAY (Bowl),ask to hear more about the tasty details,12
+2,9,2,19,Salads,LITTLE GEM CAESAR,"big eye tuna, boquerones, creamy egg dressing, buttered croutons, parmesan",16
+2,9,2,19,Salads,LYONNAISE,"poached egg, marinated mushrooms, frisee, roasted garlic-mustard seed vinaigrette, bacon",12
+2,9,2,19,Salads,MARKET SALAD,hand-selected local finds from market today,11
+2,9,3,20,The Bar is Raw,CEVICHE,shrimp & octopus,10
+2,9,3,20,The Bar is Raw,Oyster (dozen),cucumber mignonette & bloody mary cocktail sauce,35
+2,9,3,20,The Bar is Raw,COCKTAIL - Shrimp,,24
+2,9,3,20,The Bar is Raw,COCKTAIL - King Crab,,50
+2,9,3,20,The Bar is Raw,CAVIAR (28g),"pork rinds, creme fraiche, potted chervil and a bottle of vodka - ask your server for details",MP
+2,9,3,20,The Bar is Raw,SEAFOOD TOWER,The Fleet,85
+2,9,3,20,The Bar is Raw,SEAFOOD TOWER,The Armada,145
+2,9,4,6,BUTCHER 'BLOCK 37',HAMACHI COLLAR,Grilled,24
+2,9,4,6,BUTCHER 'BLOCK 37',PORK BELLY,Honey-glazed,22
+2,9,4,6,BUTCHER 'BLOCK 37',50-DAY DRY AGED RIBEYE,12oz,49
+2,9,4,6,BUTCHER 'BLOCK 37',TOMAHAWK VEAL CHOP,14oz,59
+2,9,5,21,MAINS,PAN-ROASTED STONE BASS,"ginger rice, baby turnips, shiitake mushrooms, aromatic broth",27
+2,9,5,21,MAINS,BEEF OXTAILS,"heirloom cornmeal polenta, wilted spinach, pickled ramp gremolata, house made chorizo",30
+2,9,5,21,MAINS,BLACK TRUFFLE CAPPELLETTI,"cheese and truffle-filled egg pasta, chanterelle mushrooms, sugar snap peas, corn, herb butter",21
+2,9,5,21,MAINS,DRY AGED DUCK BREAST,"panzanella bread, grilled stone fruit, dandelion greens, red wine gastrique",32
+2,9,5,21,MAINS,RABBIT & CURRY POT PIE,"confit rabbit, mushroom, peas, curry sauce, fluffy pastry crust",24
+2,9,5,21,MAINS,FISH & CHIPS,"beer-battered pacific cod, housemade fries, tartar sauce, malt vinegar",18
+2,9,6,22,BURGERS,THE DEARBORN BURGER,"wagyu grind, cheddar, boston bibb, pickle, special sauce, brioche bun",16
+2,9,6,22,BURGERS,BISON BURGER,"cambozola cheese, mushrooms and onions, dijonnaise, seeded bun",21
+2,9,7,7,SIDES,BRUSSEL SPROUTS,"bacon, parmesan, lemon-fish vinaigrette",7
+2,9,7,7,SIDES,MASHED POTATOES,"sea salt, really good butter (add glace de poulet......aka gravy for $2)",7
+2,9,7,7,SIDES,CREAMED SPINACH,"pancetta bread crumbs, parmesan",7
+2,9,7,7,SIDES,HOUSEMADE FRENCH FRIES,"ketchup, chive buttermilk",7
+2,9,7,7,SIDES,ROASTED MUSHROOMS,"sherry, butter, thyme",7
+2,10,8,1,Starter,Half DOZEN OYSTERS,"cucumber mignonette, cocktail",18
+2,10,8,1,Starter,"The Dearborn ""Meze"" Plate","grape leaves, eggplant dip, white bean hummus, marinated tomato salad",15
+2,10,8,1,Starter,Local Burrata,"marinated werp farm beets, mache, heirloom tomatoes, sweet miso vinaigrette, ohba",16
+2,10,8,1,Starter,BEEF TONGUE 'CARPACCIO',"grapes, celery root, gala apples, port wine reduction, parmesan reggiano",14
+2,10,8,1,Starter,PORK & LAMB MEATBALLS,"fresh tomato pomodoro, shirred egg, feta, garlic toast",15
+2,10,8,1,Starter,ROASTED MARROW OF BEEF,"country bread, pea shoot & radish salad, parmesan gratin",16
+2,10,8,1,Starter,MIDWEST FRIED CHICKEN,"maple mustard glaze, hot sauce, pickles",14
+2,10,9,2,Soups,CHICKEN & KALE,"chicken bone broth, frigola, pattypan squash, zucchini",7/10
+2,10,9,2,Soups,NEW ENGLAND CLAM CHOWDER,"fresh clams, potatoes, bacon, cream-based broth",9/12
+2,10,9,2,Soups,BUTTERNUT SQUASH,"creme fraiche, candied sunflowers seeds, cheesy bread",6/9
+2,10,10,4,WITH BREAD,THE DEARBORN BURGER,"wagyu grind, cheddar, boston bibb, pickle, special sauce, brioche bun",16
+2,10,10,4,WITH BREAD,PASTRAMI REUBEN,"butcher & larder pastrami, sauerkraut, thousand island",15
+2,10,10,4,WITH BREAD,‘FRENCH’ ONION PANINI,"gruyere cheese, 9-hour onions, shiitake-onion broth",14
+2,10,10,4,WITH BREAD,CHEF’S DAILY BLT,"with a surprise featured ingredient - the chef’s BLT always includes neuske’s bacon, bibb lettuce, and local farm tomatoes",18
+2,10,10,4,WITH BREAD,CHICKEN SALAD SANDWICH,"roasted chicken, currants, walnuts, celery, bibb lettuce, tomato, double cream brie",15
+2,10,10,4,WITH BREAD,FIG & AVOCADO TOAST (OPEN FACED),"grilled miche, boursin cheese, watercress, heirloom tomatoes, cucumber, dill",13
+2,10,10,4,WITH BREAD,PORK “CHICAGO” DOG,"giardiniera, celery salt, pickle, mustard (make it a party with a can of PBR for $2)",11
+2,10,11,5,ENTREES,PAN-ROASTED STONE BASS,"ginger rice, baby turnips, shiitake mushrooms, aromatic broth",27
+2,10,11,5,ENTREES,BLACK TRUFFLE CAPPELLETTI,"cheese and truffle-filled egg pasta, chanterelle mushrooms, sugar snap peas, corn, herb butter",21
+2,10,11,5,ENTREES,DRY AGED DUCK BREAST,"panzanella bread, grilled stone fruit, dandelion greens, red wine gastrique",32
+2,10,11,5,ENTREES,RABBIT & CURRY POT PIE,"confit rabbit, mushroom, peas, curry sauce, fluffy pastry crust",24
+2,10,11,5,ENTREES,FISH & CHIPS,"beer-battered pacific cod, housemade fries, tartar sauce, malt vinegar",18
+2,10,12,6,BUTCHER 'BLOCK 37',Half CHICKEN,roasted,21
+2,10,12,6,BUTCHER 'BLOCK 37',USDA PRIME ‘BAVETTE’ SIRLOIN,8oz,27
+2,10,13,7,SIDES,BRUSSEL SPROUTS,"bacon, parmesan, lemon-fish vinaigrette",7
+2,10,13,7,SIDES,MASHED POTATOES,"sea salt, really good butter (add glace de poulet......aka gravy for $2)",7
+2,10,13,7,SIDES,CREAMED SPINACH,"pancetta bread crumbs, parmesan",7
+2,10,13,7,SIDES,HOUSEMADE FRENCH FRIES,"ketchup, chive buttermilk",7
+2,10,13,7,SIDES,ROASTED MUSHROOMS,"sherry, butter, thyme",7
+2,10,13,7,SIDES,HOUSE SALAD,OR CAESAR,7
+2,12,14,8,BUILD YOUR OWN SUNDAE,mixed on marble slab tableside,,15
+2,12,15,9,AN AMERICAN SWEET TOOTH,SPICE CAKE,"bananas fosters, banana rum ice cream",10
+2,12,15,9,AN AMERICAN SWEET TOOTH,PECAN TART,"butterscotch ice cream, caramel sauce",10
+2,12,15,9,AN AMERICAN SWEET TOOTH,MEYER LEMON POT DE CREME,"candied kumquats, blood oranges, baked to order lemon madeleines",10
+2,12,15,9,AN AMERICAN SWEET TOOTH,FANTASY OF CHOCOLATE,"valrhona milk chocolate, white chocolate, fudge cake, hazelnuts, coffee ice cream",10
+2,12,16,10,Pies,MARKET PIE,"butter crust, seasonal fruits, chantilly",9
+2,12,16,10,Pies,KEY LIME,"gingersnap crust, key lime, meringue",9
+2,12,17,11,A FRENCH SWEET TOOTH,LE TUR EN CROUTE,"chef’s selection, toast, jam",19
+2,12,17,11,A FRENCH SWEET TOOTH,COURTNEY’S MACARONS,,3/ea or all four/10
+2,12,18,12,Donuts,OLD FASHIONED DONUT,,5
+2,11,19,1,Starters,Half DOZEN OYSTERS,"cucumber mignonette, cocktail",18
+2,11,19,1,Starters,MIDWEST FRIED CHICKEN,"maple mustard glaze, hot sauce, pickles",14
+2,11,19,1,Starters,ROASTED MARROW OF BEEF,"country bread, pea shoot & radish salad, parmesan gratin",16
+2,11,19,1,Starters,THE DEARBORN PARFAIT,"whipped yogurt, currant & sunflower seed granola, fall fruit",10
+2,11,19,1,Starters,SHRIMP ‘N’ GRITS,"black tiger shrimp, heirloom cornmeal and fresh corn grits, creole butter",16
+2,11,19,1,Starters,HOUSE SMOKED TROUT RILLETE,"everything bagel crisp, cucumber dill creme cheese, endive & radish salad, hard boiled egg, american caviar",19
+2,11,19,1,Starters,PETITE QUICHE,preparation changes with the seasons,10
+2,11,20,13,A FANTASY OF EGGS,PASTRAMI HASH & EGGS,"yukon gold potatoes, butcher & larder pastrami, brussels sprouts, carrots, molten gruyere cheese, sunnyside-up eggs",
+2,11,20,13,A FANTASY OF EGGS,DUCK CONFIT AND FRIED RICE,"ginger-soy crispy rice, confit duck leg, english peas, carrots, two fried eggs",17
+2,11,20,13,A FANTASY OF EGGS,PORK BELLY & RAPINI BENEDICT,"braised & grilled holland pork belly, english muffin, sauteed rapini, poached eggs, hollandaise",17
+2,11,20,13,A FANTASY OF EGGS,IRISH BREAKFAST,"2 over easy eggs, baked beans, charred tomato, irish bangers, rashers, black & white pudding, white toast",16
+2,11,20,13,A FANTASY OF EGGS,PEPPERS & EGGS,"piperade, house made chorizo sausage, shirred eggs, goat cheese, country miche",15
+2,11,21,11,FOR YOUR SWEET TOOTH,FRENCH TOAST & FOIE GRAS,"bananas fosters french toast, seared quebec foie gras, chantilly",16
+2,11,21,11,FOR YOUR SWEET TOOTH,WAFFLES & WHITE CHOCOLATE,"pearl sugar waffles, white chocolate mousse, maple syrup",12
+2,11,21,11,FOR YOUR SWEET TOOTH,LEMON RICOTTA PANCAKES,"rice pancakes, honey butter, maple syrup, blueberry compote",11
+2,11,22,15,ALMOST LUNCH,THE DEARBORN BURGER,"wagyu grind, cheddar, boston bibb, pickle, special sauce, brioche bun",16
+2,11,22,15,ALMOST LUNCH,FISH & CHIPS,"beer-battered pacific cod, housemade fries, tartar sauce, malt vinegar",18
+2,11,22,15,ALMOST LUNCH,HAM & GRUYERE ON A WAFFLE,"pearl sugar waffle topped with basil pesto, country ham and melted gruyere cheese, served warm",13
+2,11,22,15,ALMOST LUNCH,CHICKEN SALAD ON SOURDOUGH,"brie cheese, walnuts, celery, dried currents",12
+2,11,22,15,ALMOST LUNCH,B.L.T. + FRIED EGG,"neuske’s bacon, bibb lettuce, local farm tomatoes",15
+2,11,23,16,BRUNCH SALADS,LITTLE GEM CAESAR,"seared big eye tuna, bouquerones, creamy egg dressing, buttered croutons, parmesan",16
+2,11,23,16,BRUNCH SALADS,LYONNAISE,"poached egg, marinated mushrooms, frisée, roasted garlic-mustard seed vinaigrette, bacon",12
+2,11,23,16,BRUNCH SALADS,‘MARKET’ SALAD,hand-selected local finds from market today,11
+2,11,24,17,SWEET SIDES,old FASHIONED DONUT,like cake for breakfast,5
+2,11,24,17,SWEET SIDES,CINNAMON ROLL,"gooey, dreamy, cinnamon heaven",7
+2,11,25,18,SAVORY SIDES,DEARBORN POTATOES,"gruyere, sherry mushrooms",8
+2,11,25,18,SAVORY SIDES,NEUSKE’S BACON,it's delicious,6
+2,11,25,18,SAVORY SIDES,IRISH BANGERS,traditional irish sausage,6
+2,11,25,18,SAVORY SIDES,HOUSEMADE FRENCH FRIES,"ketchup, chive buttermilk",7
