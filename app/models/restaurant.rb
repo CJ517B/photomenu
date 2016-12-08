@@ -1,9 +1,11 @@
 class Restaurant < ApplicationRecord
   # Direct associations
 
-  has_many   :menu_listings,
+  has_many   :menus,
              :class_name => "Menu",
              :dependent => :destroy
+
+  mount_uploader :cover_photo, CoverPhotoUploader
 
   # Indirect associations
 

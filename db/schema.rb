@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207061403) do
+ActiveRecord::Schema.define(version: 20161208144209) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "menu_item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,14 +35,22 @@ ActiveRecord::Schema.define(version: 20161207061403) do
     t.string   "photo"
   end
 
+  create_table "menu_categories", force: :cascade do |t|
+    t.integer  "MenuId"
+    t.integer  "CategoryId"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "menu_items", force: :cascade do |t|
     t.string   "item_name"
     t.string   "price"
-    t.string   "average_review"
-    t.integer  "category_name"
+    t.integer  "average_review"
+    t.string   "category_name"
     t.integer  "menu_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
   end
 
   create_table "menus", force: :cascade do |t|

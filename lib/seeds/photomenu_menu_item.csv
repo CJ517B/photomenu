@@ -1,0 +1,38 @@
+restaurant_id,menu_id,category,item_name,description,price
+2,9,Starter,Local Burrata,"marinated werp farm beets, mache, heirloom tomatoes, sweet miso vinaigrette, ohba",16
+2,9,Starter,"The Dearborn ""Meze"" Plate","grape leaves, eggplant dip, white bean hummus, marinated tomato salad",15
+2,9,Starter,BEEF TONGUE 'CARPACCIO',"grapes, celery root, gala apples, port wine reduction, parmesan reggiano",14
+2,9,Starter,CONFIT SPANISH OCTOPUS,"black olives, capers, tomatoes, goat cheese preserved lemon and smoked paprika vinaigrette",16
+2,9,Starter,STEAMED MUSSELS,"'nduja, wine-butter, fresh herbs, grilled bread",15
+2,9,Starter,PORK & LAMB MEATBALLS,"fresh tomato pomodoro, shirred egg, feta, garlic toast",14
+2,9,Starter,ROASTED MARROW OF BEEF,"country bread, pea shoot & radish salad, parmesan gratin",16
+2,9,Starter,MIDWEST FRIED CHICKEN,"maple mustard glaze, hot sauce, pickles",14
+2,9,Starter,SOUP OF THE DAY (Cup),ask to hear more about the tasty details,7
+2,9,Starter,SOUP OF THE DAY (Bowl),ask to hear more about the tasty details,12
+2,9,Salads,LITTLE GEM CAESAR,"big eye tuna, boquerones, creamy egg dressing, buttered croutons, parmesan",16
+2,9,Salads,LYONNAISE,"poached egg, marinated mushrooms, frisee, roasted garlic-mustard seed vinaigrette, bacon",12
+2,9,Salads,MARKET SALAD,hand-selected local finds from market today,11
+2,9,The Bar is Raw,CEVICHE,shrimp & octopus,10
+2,9,The Bar is Raw,Oyster (dozen),cucumber mignonette & bloody mary cocktail sauce,35
+2,9,The Bar is Raw,COCKTAIL - Shrimp,,24
+2,9,The Bar is Raw,COCKTAIL - King Crab,,50
+2,9,The Bar is Raw,CAVIAR (28g),"pork rinds, creme fraiche, potted chervil and a bottle of vodka - ask your server for details",MP
+2,9,The Bar is Raw,SEAFOOD TOWER,The Fleet,85
+2,9,The Bar is Raw,SEAFOOD TOWER,The Armada,145
+2,9,BUTCHER 'BLOCK 37',HAMACHI COLLAR,Grilled,24
+2,9,BUTCHER 'BLOCK 37',PORK BELLY,Honey-glazed,22
+2,9,BUTCHER 'BLOCK 37',50-DAY DRY AGED RIBEYE,12oz,49
+2,9,BUTCHER 'BLOCK 37',TOMAHAWK VEAL CHOP,14oz,59
+2,9,MAINS,PAN-ROASTED STONE BASS,"ginger rice, baby turnips, shiitake mushrooms, aromatic broth",27
+2,9,MAINS,BEEF OXTAILS,"heirloom cornmeal polenta, wilted spinach, pickled ramp gremolata, house made chorizo",30
+2,9,MAINS,BLACK TRUFFLE CAPPELLETTI,"cheese and truffle-filled egg pasta, chanterelle mushrooms, sugar snap peas, corn, herb butter",21
+2,9,MAINS,DRY AGED DUCK BREAST,"panzanella bread, grilled stone fruit, dandelion greens, red wine gastrique",32
+2,9,MAINS,RABBIT & CURRY POT PIE,"confit rabbit, mushroom, peas, curry sauce, fluffy pastry crust",14
+2,9,MAINS,FISH & CHIPS,"beer-battered pacific cod, housemade fries, tartar sauce, malt vinegar",18
+2,9,BURGERS,THE DEARBORN BURGER,"wagyu grind, cheddar, boston bibb, pickle, special sauce, brioche bun",16
+2,9,BURGERS,BISON BURGER,"cambozola cheese, mushrooms and onions, dijonnaise, seeded bun",21
+2,9,SIDES,BRUSSEL SPROUTS,"bacon, parmesan, lemon-fish vinaigrette",7
+2,9,SIDES,MASHED POTATOES,"sea salt, really good butter (add glace de poulet......aka gravy for $2)",7
+2,9,SIDES,CREAMED SPINACH,"pancetta bread crumbs, parmesan",7
+2,9,SIDES,HOUSEMADE FRENCH FRIES,"ketchup, chive buttermilk",7
+2,9,SIDES,ROASTED MUSHROOMS,"sherry, butter, thyme",7

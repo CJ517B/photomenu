@@ -1,4 +1,38 @@
 Rails.application.routes.draw do
+  # Routes for the Menu_category resource:
+  # CREATE
+  get "/menu_categories/new", :controller => "menu_categories", :action => "new"
+  post "/create_menu_category", :controller => "menu_categories", :action => "create"
+
+  # READ
+  get "/menu_categories", :controller => "menu_categories", :action => "index"
+  get "/menu_categories/:id", :controller => "menu_categories", :action => "show"
+
+  # UPDATE
+  get "/menu_categories/:id/edit", :controller => "menu_categories", :action => "edit"
+  post "/update_menu_category/:id", :controller => "menu_categories", :action => "update"
+
+  # DELETE
+  get "/delete_menu_category/:id", :controller => "menu_categories", :action => "destroy"
+  #------------------------------
+
+  # Routes for the Category resource:
+  # CREATE
+  get "/categories/new", :controller => "categories", :action => "new"
+  post "/create_category", :controller => "categories", :action => "create"
+
+  # READ
+  get "/categories", :controller => "categories", :action => "index"
+  get "/categories/:id", :controller => "categories", :action => "show"
+
+  # UPDATE
+  get "/categories/:id/edit", :controller => "categories", :action => "edit"
+  post "/update_category/:id", :controller => "categories", :action => "update"
+
+  # DELETE
+  get "/delete_category/:id", :controller => "categories", :action => "destroy"
+  #------------------------------
+
   ActiveAdmin.routes(self)
 
   devise_for :users

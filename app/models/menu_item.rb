@@ -3,7 +3,7 @@ class MenuItem < ApplicationRecord
 
   belongs_to :menu
 
-  has_many   :want_to_orders,
+  has_many   :bookmarks,
              :class_name => "Bookmark",
              :dependent => :destroy
 
@@ -15,7 +15,7 @@ class MenuItem < ApplicationRecord
 
   # Validations
 
-  validates :item_name, :uniqueness => { :scope => [:menu_id] }
+  validates :item_name, :uniqueness => { :scope => [:menu_id, :description] }
 
   validates :item_name, :presence => true
 
