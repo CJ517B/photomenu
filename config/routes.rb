@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root :to => "restaurants#index"
 
   get "/my_bookmarks", :controller => "users", :action => "my_bookmarks"
+  get "/my_photos", :controller => "users", :action => "my_photos"
+
   # Routes for the Ownership resource:
   # CREATE
   get "/ownerships/new", :controller => "ownerships", :action => "new"

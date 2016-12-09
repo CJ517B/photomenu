@@ -64,7 +64,7 @@ class FoodPhotosController < ApplicationController
 
       case referer
       when "/food_photos/#{@food_photo.id}/edit", "/update_food_photo"
-        redirect_to("/food_photos/#{@food_photo.id}", :notice => "Food photo updated successfully.")
+        redirect_to("/my_photos", :notice => "Food photo updated successfully.")
       else
         redirect_back(:fallback_location => "/", :notice => "Food photo updated successfully.")
       end

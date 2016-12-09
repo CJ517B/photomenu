@@ -10,8 +10,9 @@
               <th>Dishes</th>
               <th>Photos</th>
               <th>Bookmark</th>
+              <th>Action</th>
             </tr>
-            <% @me.bookmarks.each do |b| %>
+            <% FoodPhoto.where(:user_id=> @me.id).each do |b| %>
             <tr>
               <th><a href="/restaurants/<%= b.menu_item.menu.restaurant.id %>"><%= b.menu_item.menu.restaurant.name %></a>
               </th>
@@ -29,6 +30,19 @@
                   <a href="/delete_bookmark/<%= b.id %>" class="btn btn-link">
                 <i class="fa fa-heart"></i>
               </a>
+                </th>
+                <th>
+                  <div class="btn-group btn-group-xs pull-right">
+                    <a href="/food_photos/<%= b.id %>" class="btn btn-primary">
+                      <i class="fa fa-search-plus"></i>
+                    </a>
+                    <a href="/food_photos/<%= b.id %>/edit" class="btn btn-warning">
+                      <i class="fa fa-edit"></i>
+                    </a>
+                    <a href="/delete_food_photo/<%= b.id %>" class="btn btn-danger" rel="nofollow">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                  </div>
                 </th>
               </tr>
                 <% end %>

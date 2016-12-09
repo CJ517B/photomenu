@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     render("users/index.html.erb")
   end
 
+  def my_photos
+    @me=User.find(current_user.id)
+  end
+
   def my_bookmarks
     @me=User.find(current_user.id)
     @users = User.all
