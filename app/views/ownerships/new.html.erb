@@ -23,8 +23,7 @@
         <label for="user_id" class="control-label">
           User
         </label>
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @ownership.user_id %>">
+  <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username), :class => "form-control") %>
       </div>
 
       <!-- Label and input for restaurant_id -->
@@ -32,8 +31,7 @@
         <label for="restaurant_id" class="control-label">
           Restaurant
         </label>
-
-        <input type="text" id="restaurant_id" name="restaurant_id" placeholder="Restaurant" class="form-control" value="<%= @ownership.restaurant_id %>">
+  <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.all, :id, :name), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">

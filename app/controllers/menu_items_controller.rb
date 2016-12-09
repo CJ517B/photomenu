@@ -1,7 +1,7 @@
 class MenuItemsController < ApplicationController
   def index
     @q = MenuItem.ransack(params[:q])
-    @menu_items = @q.result(:distinct => true).includes(:photos, :want_to_orders, :menu).page(params[:page]).per(10)
+    @menu_items = @q.result(:distinct => true).includes(:photos, :bookmarks, :menu).page(params[:page]).per(10)
 
     render("menu_items/index.html.erb")
   end
@@ -26,7 +26,7 @@ class MenuItemsController < ApplicationController
     @menu_item.item_name = params[:item_name]
     @menu_item.price = params[:price]
     @menu_item.average_review = params[:average_review]
-    @menu_item.category_name = params[:category_name]
+    @menu_item.category_id = params[:category_id]
     @menu_item.menu_id = params[:menu_id]
 
     save_status = @menu_item.save
@@ -56,8 +56,8 @@ class MenuItemsController < ApplicationController
 
     @menu_item.item_name = params[:item_name]
     @menu_item.price = params[:price]
-    @menu_item.average_review = params[:average_review]
-    @menu_item.category_name = params[:category_name]
+    # @menu_item.average_review = params[:average_review]
+    @menu_item.category_id = params[:category_id]
     @menu_item.menu_id = params[:menu_id]
 
     save_status = @menu_item.save
@@ -69,7 +69,7 @@ class MenuItemsController < ApplicationController
       when "/menu_items/#{@menu_item.id}/edit", "/update_menu_item"
         redirect_to("/menu_items/#{@menu_item.id}", :notice => "Menu item updated successfully.")
       else
-        redirect_back(:fallback_location => "/", :notice => "Menu item updated successfully.")
+        redirect_back(:back , :notice => "Menu item updated successfully.")
       end
     else
       render("menu_items/edit.html.erb")

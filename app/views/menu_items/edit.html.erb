@@ -1,11 +1,11 @@
 <!-- Validation failure messages -->
 <% if @menu_item.errors.any? %>
-  <% @menu_item.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @menu_item.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header">
@@ -36,22 +36,13 @@
         <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @menu_item.price %>">
       </div>
 
-      <!-- Label and input for average_review -->
-      <div class="form-group">
-        <label for="average_review" class="control-label">
-          Average review
-        </label>
-
-        <input type="text" id="average_review" name="average_review" placeholder="Average review" class="form-control" value="<%= @menu_item.average_review %>">
-      </div>
-
       <!-- Label and input for category_name -->
       <div class="form-group">
-        <label for="category_name" class="control-label">
-          Category name
+        <label for="category_id" class="control-label">
+          Category
         </label>
-
-        <input type="text" id="category_name" name="category_name" placeholder="Category name" class="form-control" value="<%= @menu_item.category_name %>">
+        <%= select_tag(:name, options_from_collection_for_select(Category.all, :id, :name), :class => "form-control") %>
+        <a href="/categories/new">Add a new category</a>
       </div>
 
       <!-- Label and input for menu_id -->

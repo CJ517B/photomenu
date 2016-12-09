@@ -10,6 +10,7 @@ class Restaurant < ApplicationRecord
   # Indirect associations
 
   # Validations
+  has_many :ownerships
 
   validates :address, :presence => true
 

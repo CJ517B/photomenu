@@ -9,15 +9,21 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th>MenuCategoryid</th>
         <th>Menuid</th>
+        <th>Menu</th>
         <th>Categoryid</th>
+        <th>Category</th>
         <th>Actions</th>
       </tr>
 
       <% @menu_categories.each do |menu_category| %>
       <tr>
+        <td><%= menu_category.id %></td>
         <td><%= menu_category.MenuId %></td>
+        <td><%= Menu.find(menu_category.MenuId).menu_name %></td>
         <td><%= menu_category.CategoryId %></td>
+        <td><%= Category.find(menu_category.CategoryId).name %></td>
         <td>
           <a href="/menu_categories/<%= menu_category.id %>" class="btn btn-primary">Show</a>
           <a href="/menu_categories/<%= menu_category.id %>/edit" class="btn btn-warning">Edit</a>

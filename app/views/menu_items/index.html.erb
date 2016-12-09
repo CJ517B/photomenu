@@ -5,6 +5,8 @@
   </h1>
 </div>
 
+
+
 <div class="row">
   <div class="col-md-12">
     <table class="table table-striped table-hover">
@@ -22,7 +24,7 @@
         <td><%= menu_item.item_name %></td>
         <td><%= menu_item.price %></td>
         <td><%= menu_item.average_review %></td>
-        <td><%= menu_item.category_name %></td>
+        <td><%= menu_item.MenuCategoryId %></td>
         <td>
           <% if menu_item.menu.present? %>
             <a href="/menus/<%= menu_item.menu.id %>">

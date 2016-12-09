@@ -20,7 +20,12 @@
   <%= csrf_meta_tags %>
 
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+  <script>
+  $('#myTabs a').click(function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 </head>
@@ -41,10 +46,12 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
+          <li><a href="/restaurants">Restaurants</a></li>
           <li><a href="/bookmarks">Bookmarks</a></li>
           <li><a href="/food_photos">Food Photos</a></li>
           <li><a href="/menus">Menus</a></li>
-          <li><a href="/restaurants">Restaurants</a></li>
+          <li><a href="/categories">Category</a></li>
+          <li><a href="/menu_categories">MCategory</a></li>
           <li><a href="/menu_items">Menu Items</a></li>
           <li><a href="/users">Users</a></li>
           <li><a href="/ownerships">Ownerships</a></li>
@@ -66,26 +73,26 @@
             </ul>
 
 
-      </div><!-- /.navbar-collapse -->
-    </div>
-  </nav>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </nav>
 
-  <div class="container">
-    <% if notice.present? %>
-    <div class="alert alert-dismissable alert-success">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= notice %>
-    </div>
-    <% end %>
+      <div class="container">
+        <% if notice.present? %>
+        <div class="alert alert-dismissable alert-success">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= notice %>
+        </div>
+        <% end %>
 
-    <% if alert.present? %>
-    <div class="alert alert-dismissable alert-warning">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= alert %>
-    </div>
-    <% end %>
+        <% if alert.present? %>
+        <div class="alert alert-dismissable alert-warning">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= alert %>
+        </div>
+        <% end %>
 
-    <%= yield %>
-  </div>
-</body>
-</html>
+        <%= yield %>
+      </div>
+    </body>
+    </html>

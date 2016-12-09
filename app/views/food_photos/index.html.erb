@@ -1,3 +1,4 @@
+
 <div class="page-header">
   <h1>
     Food photos
@@ -11,6 +12,7 @@
       <tr>
         <th>User</th>
         <th>Menu item</th>
+        <th>Photo</th>
         <th>Item review</th>
         <th>Comment</th>
         <th>Actions</th>
@@ -20,18 +22,20 @@
       <tr>
         <td>
           <% if food_photo.user.present? %>
-            <a href="/users/<%= food_photo.user.id %>">
-              <%= food_photo.user.username %>
-            </a>
+          <a href="/users/<%= food_photo.user.id %>">
+            <%= food_photo.user.username %>
+          </a>
           <% end %>
         </td>
         <td>
           <% if food_photo.menu_item.present? %>
-            <a href="/menu_items/<%= food_photo.menu_item.id %>">
-              <%= food_photo.menu_item.item_name %>
-            </a>
+          <a href="/menu_items/<%= food_photo.menu_item.id %>">
+            <%= food_photo.menu_item.item_name %>
+          </a>
           <% end %>
         </td>
+        <td>
+          <img src="<%= food_photo.photo %>" class="img-responsive" width=500px></td>
         <td><%= food_photo.item_review %></td>
         <td><%= food_photo.comment %></td>
         <td>

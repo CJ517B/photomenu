@@ -9,6 +9,8 @@ class FoodPhoto < ApplicationRecord
 
   # Indirect associations
 
+
+
   # Validations
 
   validates :menu_item_id, :presence => true

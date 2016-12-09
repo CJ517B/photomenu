@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  ActiveAdmin.routes(self)
+
+  devise_for :users
+
+  root :to => "restaurants#index"
+  
   # Routes for the Ownership resource:
   # CREATE
   get "/ownerships/new", :controller => "ownerships", :action => "new"
@@ -50,12 +57,7 @@ Rails.application.routes.draw do
   get "/delete_category/:id", :controller => "categories", :action => "destroy"
   #------------------------------
 
-  ActiveAdmin.routes(self)
 
-  devise_for :users
-
-  root :to => "restaurants#index"
-  
   # Routes for the Bookmark resource:
   # CREATE
   get "/bookmarks/new", :controller => "bookmarks", :action => "new"

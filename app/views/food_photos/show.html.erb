@@ -35,12 +35,14 @@
       <a href="/food_photos" class="btn btn-primary">
         Back
       </a>
+      <% if current_user.id == @food_photo.user_id %>
       <a href="/food_photos/<%= @food_photo.id %>/edit" class="btn btn-warning">
         Edit
       </a>
       <a href="/delete_food_photo/<%= @food_photo.id %>" class="btn btn-danger" rel="nofollow">
         Delete
       </a>
+      <% end %>
     </div>
   </div>
 </div>

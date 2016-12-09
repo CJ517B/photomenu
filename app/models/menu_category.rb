@@ -1,5 +1,8 @@
 class MenuCategory < ApplicationRecord
-  validates :menu_id, :presence => true
-  validates :category_id, :presence => true
-  validates :category_id, :uniqueness => { :scope => [:menu_id] }
+  validates :MenuId, :presence => true
+  validates :CategoryId, :presence => true
+  validates :CategoryId, :uniqueness => { :scope => [:MenuId] }
+
+  belongs_to :menu
+  belongs_to :category
 end
