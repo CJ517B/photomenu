@@ -9,7 +9,7 @@
               <th>Restaurant</th>
               <th>Dishes</th>
               <th>Photos</th>
-              <th>Bookmark</th>
+          
               <th>Action</th>
             </tr>
             <% FoodPhoto.where(:user_id=> @me.id).each do |b| %>
@@ -26,11 +26,7 @@
                   </div>
                   <% end %>
                 </th>
-                <th>
-                  <a href="/delete_bookmark/<%= b.id %>" class="btn btn-link">
-                <i class="fa fa-heart"></i>
-              </a>
-                </th>
+
                 <th>
                   <div class="btn-group btn-group-xs pull-right">
                     <a href="/food_photos/<%= b.id %>" class="btn btn-primary">
