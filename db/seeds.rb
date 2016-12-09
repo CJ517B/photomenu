@@ -50,7 +50,7 @@ menu_item = CSV.parse(menu_item_seed, :headers => true, :encoding => 'ISO-8859-1
 menu_item.each do |row|
   i = MenuItem.new
   i.menu_id = row['menu_id']
-  i.MenuCategoryId =row['menu_category_id']
+  # i.MenuCategoryId =row['menu_category_id']
   i.price =  row['price']
   i.item_name = row['item_name'].capitalize
   i.description = row['description']

@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   root :to => "restaurants#index"
-  
+
+  get "/my_bookmarks", :controller => "users", :action => "my_bookmarks"
   # Routes for the Ownership resource:
   # CREATE
   get "/ownerships/new", :controller => "ownerships", :action => "new"

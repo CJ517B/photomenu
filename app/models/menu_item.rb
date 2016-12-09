@@ -16,8 +16,6 @@ class MenuItem < ApplicationRecord
   belongs_to :MenuCategory
   belongs_to :category
 
-  mount_uploader :photo, PhotoUploader
-
   # Indirect associations
 
   # Validations

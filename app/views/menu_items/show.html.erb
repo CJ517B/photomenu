@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h3>Menu Item #<%= @menu_item.id %> - <%= @menu_item.item_name %></h3>
+  <h3><%= @menu_item.item_name %></h3>
 </div>
 
 <div class="row">
@@ -9,10 +9,6 @@
       <dd>  <a href="/restaurants/<%= @menu_item.menu.restaurant_id %>">
         <%= Restaurant.find(@menu_item.menu.restaurant_id).name %></a>
       </dd>
-
-      <dt>Item name</dt>
-
-      <dd><%= @menu_item.item_name %></dd>
       <dt>Menu</dt>
       <dd>
         <% if @menu_item.menu.present? %>
@@ -29,6 +25,9 @@
 
       <dt>Average review</dt>
       <dd><%= @menu_item.average_review %></dd>
+
+      <dt>Category</dt>
+      <dd>f</dd>
 
       <dt>Photos</dt>
       <dd>
@@ -90,7 +89,7 @@
             </label>
             <input type="hidden" id="menu_item_id" name="menu_item_id"  class="form-control" value="<%= @menu_item.id %>">
 
-        
+
             <label for="item_review" class="control-label">
               Item review
             </label>
