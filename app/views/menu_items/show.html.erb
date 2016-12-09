@@ -23,11 +23,10 @@
       <dt>Description</dt>
       <dd><%= @menu_item.description %></dd>
 
-      <dt>Average review</dt>
-      <dd><%= @menu_item.average_review %></dd>
-
+      <% if @menu_item.category_id.present? %>
       <dt>Category</dt>
-      <dd>f</dd>
+      <dd><% @menu_item.category.name %></dd>
+      <% end %>
 
       <dt>Photos</dt>
       <dd>
@@ -43,13 +42,10 @@
         </div>
         <% end %>
       </dd>
-
-
-
     </dl>
 
     <div class="btn-group btn-group-justified">
-      <a href="/menu_items" class="btn btn-primary">
+      <a href="/menus/<%= @menu_item.menu_id %>" class="btn btn-primary">
         Back
       </a>
       <a href="/menu_items/<%= @menu_item.id %>/edit" class="btn btn-warning">
@@ -115,66 +111,6 @@
 
           <button class="btn btn-block btn-success">
             Create Food Photo
-          </button>
-        </form>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<!-- A Menu item has many bookmarks -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Bookmarks
-      </li>
-
-      <% @menu_item.bookmarks.each do |bookmark| %>
-      <li class="list-group-item">
-        <a href="/bookmarks/<%= bookmark.id %>">
-          <%= bookmark.created_at %>
-        </a>
-        <div class="btn-group btn-group-xs pull-right">
-          <a href="/bookmarks/<%= bookmark.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
-          <a href="/bookmarks/<%= bookmark.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-          <a href="/delete_bookmark/<%= bookmark.id %>" class="btn btn-danger" rel="nofollow">
-            <i class="fa fa-trash-o"></i>
-          </a>
-        </div>
-      </li>
-      <% end %>
-
-      <li class="list-group-item">
-        <form action="/create_bookmark" method="post">
-          <!-- Hidden input for authenticity token to protect from forgery -->
-          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-          <!-- Label and input for user_id -->
-          <div class="form-group">
-            <label for="user_id" class="control-label">
-              User
-            </label>
-
-            <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username), :class => "form-control") %>
-          </div>
-
-          <!-- Label and input for menu_item_id -->
-          <div class="form-group">
-            <label for="menu_item_id" class="control-label">
-              Menu item
-            </label>
-
-            <%= select_tag(:menu_item_id, options_from_collection_for_select(MenuItem.all, :id, :item_name), :class => "form-control") %>
-          </div>
-
-          <button class="btn btn-block btn-success">
-            Create Bookmark
           </button>
         </form>
       </li>

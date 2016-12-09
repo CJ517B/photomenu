@@ -1,4 +1,6 @@
 class RestaurantsController < ApplicationController
+skip_before_action :authenticate_user!, only: [:index]
+
   def index
     @q = Restaurant.ransack(params[:q])
     @restaurants = @q.result(:distinct => true).includes(:menus).page(params[:page]).per(10)

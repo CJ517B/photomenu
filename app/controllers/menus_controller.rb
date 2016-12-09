@@ -1,4 +1,6 @@
 class MenusController < ApplicationController
+
+  
   def index
     @q = Menu.ransack(params[:q])
     @menus = @q.result(:distinct => true).includes(:restaurant, :menu_items).page(params[:page]).per(10)

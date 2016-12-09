@@ -1,11 +1,11 @@
 <!-- Validation failure messages -->
 <% if @restaurant.errors.any? %>
-  <% @restaurant.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @restaurant.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header">
@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/create_restaurant" method="post">
+    <form action="/create_restaurant" method="post" enctype="multipart/form-data">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -41,9 +41,8 @@
         <label for="cover_photo" class="control-label">
           Cover photo
         </label>
-
-        <input type="text" id="cover_photo" name="cover_photo" placeholder="Cover photo" class="form-control" value="<%= @restaurant.cover_photo %>">
-      </div>
+        <input type="file" id="cover_photo" name="cover_photo" class="form-control">
+        </div>
 
       <!-- Label and input for description -->
       <div class="form-group">

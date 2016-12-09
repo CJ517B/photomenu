@@ -1,4 +1,6 @@
 class MenuItemsController < ApplicationController
+
+
   def index
     @q = MenuItem.ransack(params[:q])
     @menu_items = @q.result(:distinct => true).includes(:photos, :bookmarks, :menu).page(params[:page]).per(10)
