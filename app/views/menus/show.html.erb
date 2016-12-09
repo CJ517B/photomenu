@@ -5,6 +5,10 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
+      <dt>Address</dt>
+      <dd><%= @menu.restaurant.address %></dd>
+      <dt>Description</dt>
+      <dd><%= @menu.restaurant.description %></dd>
       <dt>All Menus</dt>
       <% @menu.restaurant.menus.each do |m| %>
       <dd> <a href="/menus/<%= m.id %>">
@@ -12,6 +16,21 @@
       </dd>
       <% end %>
     </dl>
+    <div class="btn-group btn-group-justified">
+      <a href="/restaurants" class="btn btn-primary">
+        Back
+      </a>
+      <% if  @menu.restaurant.ownerships.present? %>
+      <% if  @menu.restaurant.ownerships.find_by( :user_id => current_user.id).user_id == current_user.id %>
+      <a href="/restaurants/<%= @menu.restaurant.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_restaurant/<%= @menu.restaurant.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+      <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -24,6 +43,7 @@
             <th>Dishes</th>
             <th>Type</th>
             <th>Photos</th>
+            <th>Bookmark</th>
             <% if  @menu.restaurant.ownerships.present? %>
             <% if  @menu.restaurant.ownerships.find_by( :user_id => current_user.id).user_id == current_user.id %>
             <th>Action</th>
@@ -37,114 +57,120 @@
               <a href="/menu_items/<%= menu_item.id %>"><%= menu_item.item_name %></a>
             </th>
             <th>
+              <% if  menu_item.category.present? %>
               <%= menu_item.category.name %>
+              <% end %>
             </th>
             <th>
+              <% if menu_item.photos.first.present? %>
               <div class="col-xs-6 col-md-3">
                 <a href="/food_photos/<%= menu_item.photos.first.id %>" class="thumbnail">
                   <img src="<%= menu_item.photos.first.photo %>" class="img-responsive"></img>
                 </a>
               </div>
+              <% end %>
               <div>
                 <a href="/food_photos/new">
-                <i class="fa fa-plus-square" aria-hidden="true"></i></a>
-                </div>
+                  <i class="fa fa-plus-square" aria-hidden="true"></i>
+                </a>
+              </div>
+            </th>
+            <th>
+              <% if menu_item.fans.exists?(current_user.id)  %>
+              <% @bookmark = menu_item.bookmark.find_by( :user_id => current_user.id) %>
+              <a href="/delete_bookmark/<%= @bookmark.id %>" class="btn btn-link">
+                <i class="fa fa-heart"></i>
+              </a>
+              <% else %>
+              <form action="/create_bookmark", method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="text" name="menu_item.id" value="<%= menu_item.id %>">
+                <input type="text" name="user_id" value="<%= current_user.id %>">
+                <button class = "btn btn-link"><i class="fa fa-heart-o"></i>
+                </button>
+              </form>
+            </th>
 
-                </th>
-                <% if  @menu.restaurant.ownerships.present? %>
-                <% if  @menu.restaurant.ownerships.find_by( :user_id => current_user.id).user_id == current_user.id %>
-                <th>
-                  <div class="btn-group btn-group-xs pull-right">
-                    <a href="/menu_items/<%= menu_item.id %>" class="btn btn-primary">
-                      <i class="fa fa-search-plus"></i>
-                    </a>
-                    <a href="/menu_items/<%= menu_item.id %>/edit" class="btn btn-warning">
-                      <i class="fa fa-edit"></i>
-                    </a>
-                    <a href="/delete_menu_item/<%= menu_item.id %>" class="btn btn-danger" rel="nofollow">
-                      <i class="fa fa-trash-o"></i>
-                    </a>
-                  </div>
-                </th>
-                <% end %>
-                <% end %>
-              </tr>
-              <% end  %>
-            </table>
+            <% if  @menu.restaurant.ownerships.present? %>
+            <% if  @menu.restaurant.ownerships.find_by( :user_id => current_user.id).user_id == current_user.id %>
+            <th>
+              <div class="btn-group btn-group-xs pull-right">
+                <a href="/menu_items/<%= menu_item.id %>" class="btn btn-primary">
+                  <i class="fa fa-search-plus"></i>
+                </a>
+                <a href="/menu_items/<%= menu_item.id %>/edit" class="btn btn-warning">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a href="/delete_menu_item/<%= menu_item.id %>" class="btn btn-danger" rel="nofollow">
+                  <i class="fa fa-trash-o"></i>
+                </a>
+              </div>
+            </th>
+            <% end %>
+            <% end %>
+          </tr>
+          <% end  %>
+        </table>
 
-            <ul class="list-group">
-              <li class="list-group-item list-group-item-info">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-info">
+            Add a new dish
+          </li>
+
+          <li class="list-group-item">
+            <form action="/create_menu_item" method="post">
+              <!-- Hidden input for authenticity token to protect from forgery -->
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+              <!-- Label and input for item_name -->
+              <div class="form-group">
+                <label for="item_name" class="control-label">
+                  Dish name
+                </label>
+
+                <input type="text" id="item_name" name="item_name" placeholder="Item name" class="form-control" value="">
+              </div>
+
+              <!-- Label and input for price -->
+              <div class="form-group">
+                <label for="price" class="control-label">
+                  Price
+                </label>
+
+                <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="">
+              </div>
+
+              <!-- Label and input for category_name -->
+              <div class="form-group">
+                <label for="category_name" class="control-label">
+                  Category
+                </label>
+                <%= select_tag(:id, options_from_collection_for_select(Category.all, :id, :name), :class => "form-control") %>
+                <a href="/categories/new">Add a new category</a>
+              </div>
+
+              <!-- Label and input for menu_id -->
+              <input type="hidden" name="menu_id" value="<%= @menu.id %>">
+
+              <button class="btn btn-block btn-success">
                 Add a new dish
-              </li>
-
-
-
-              <li class="list-group-item">
-                <form action="/create_menu_item" method="post">
-                  <!-- Hidden input for authenticity token to protect from forgery -->
-                  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-                  <!-- Label and input for item_name -->
-                  <div class="form-group">
-                    <label for="item_name" class="control-label">
-                      Item name
-                    </label>
-
-                    <input type="text" id="item_name" name="item_name" placeholder="Item name" class="form-control" value="">
-                  </div>
-
-                  <!-- Label and input for price -->
-                  <div class="form-group">
-                    <label for="price" class="control-label">
-                      Price
-                    </label>
-
-                    <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="">
-                  </div>
-
-                  <!-- Label and input for average_review -->
-                  <div class="form-group">
-                    <label for="average_review" class="control-label">
-                      Average review
-                    </label>
-
-                    <input type="text" id="average_review" name="average_review" placeholder="Average review" class="form-control" value="">
-                  </div>
-
-                  <!-- Label and input for category_name -->
-                  <div class="form-group">
-                    <label for="category_name" class="control-label">
-                      Category name
-                    </label>
-
-                    <input type="text" id="category_name" name="category_name" placeholder="Category name" class="form-control" value="">
-                  </div>
-
-                  <!-- Label and input for menu_id -->
-                  <input type="hidden" name="menu_id" value="<%= @menu.id %>">
-
-                  <button class="btn btn-block btn-success">
-                    Add a new dish
-                  </button>
-                </form>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-
-        <div class="btn-group btn-group-justified">
-          <a href="/menus" class="btn btn-primary">
-            Back
-          </a>
-          <a href="/menus/<%= @menu.id %>/edit" class="btn btn-warning">
-            Edit
-          </a>
-          <a href="/delete_menu/<%= @menu.id %>" class="btn btn-danger" rel="nofollow">
-            Delete
-          </a>
-        </div>
+              </button>
+            </form>
+          </li>
+        </ul>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- A Menu has many menu_items -->
+<div class="btn-group btn-group-justified">
+  <a href="/menus" class="btn btn-primary">
+    Back
+  </a>
+  <a href="/menus/<%= @menu.id %>/edit" class="btn btn-warning">
+    Edit
+  </a>
+  <a href="/delete_menu/<%= @menu.id %>" class="btn btn-danger" rel="nofollow">
+    Delete
+  </a>
+</div>

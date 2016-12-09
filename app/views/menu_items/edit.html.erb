@@ -41,7 +41,7 @@
         <label for="category_id" class="control-label">
           Category
         </label>
-        <%= select_tag(:name, options_from_collection_for_select(Category.all, :id, :name), :class => "form-control") %>
+        <%= select_tag(:id, options_from_collection_for_select(Category.all, :id, :name), :class => "form-control") %>
         <a href="/categories/new">Add a new category</a>
       </div>
 

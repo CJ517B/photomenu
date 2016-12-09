@@ -92,21 +92,26 @@
 
       <% @restaurants.each do |restaurant| %>
       <tr>
-        <td><a href="/restaurants/<%= restaurant.id %>"><%= restaurant.name %></a></td>
-        <td><%= restaurant.address %></td>
-        <td><% restaurant.menus.each do |menu| %>
-          <ul>
-            <li>
-              <a href="/menus/<%= menu.id %>"><%= menu.menu_name %></a>
-            </li>
-          </ul>
+        <td>
+          <% if restaurant.menus.present? %>
+          <a href="/menus/<%= restaurant.menus.first.id %>">
+            <% else %>  <a href="/restaurants/<%= restaurant.id %>">
+            <% end %>
+            <%= restaurant.name %></a></td>
+            <td><%= restaurant.address %></td>
+            <td><% restaurant.menus.each do |menu| %>
+              <ul>
+                <li>
+                  <a href="/menus/<%= menu.id %>"><%= menu.menu_name %></a>
+                </li>
+              </ul>
+              <% end %>
+            </td>
+            <td><%= restaurant.description %></td>
+          </tr>
           <% end %>
-        </td>
-        <td><%= restaurant.description %></td>
-      </tr>
-      <% end %>
 
-    </table>
-    <%= paginate @restaurants, theme: 'twitter-bootstrap-4' %>
-  </div>
-</div>
+        </table>
+        <%= paginate @restaurants, theme: 'twitter-bootstrap-4' %>
+      </div>
+    </div>

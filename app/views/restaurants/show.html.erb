@@ -16,7 +16,7 @@
 
       <dt>Menus</dt>
       <dd><% @restaurant.menus.each do |menu| %>
-        <li>
+        <li style="none">
           <a href="/menus/<%= menu.id %>"><%= menu.menu_name %></a>
 
           <% if Ownership.find_by(:restaurant_id => @restaurant.id) != nil && current_user.id == Ownership.find_by(:restaurant_id => @restaurant.id).user_id %>
@@ -31,36 +31,34 @@
               <i class="fa fa-trash-o"></i>
             </a>
           </div>
-          <div>
-            <li "list-group-item">
-              <form action="/create_menu" method="post">
-                <!-- Hidden input for authenticity token to protect from forgery -->
-                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-                <!-- Label and input for restaurant_id -->
-                <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
-
-                <!-- Label and input for menu_name -->
-                <div class="form-group">
-                  <label for="menu_name" class="control-label">
-                    Add a New Menu
-                  </label>
-
-                  <input type="text" id="menu_name" name="menu_name" placeholder="Menu name" class="form-control" value="">
-                </div>
-
-                <button class="btn btn-block btn-success">
-                  Create Menu
-                </button>
-              </form>
-            </li>
-          </div>
           <% end %>
         </li>
         <% end %>
+        <div>
+          <form action="/create_menu" method="post">
+            <!-- Hidden input for authenticity token to protect from forgery -->
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+            <!-- Label and input for restaurant_id -->
+            <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
+
+            <!-- Label and input for menu_name -->
+            <div class="form-group">
+              <label for="restaurant_id" class="control-label">
+              </label>
+              <input type="hidden" id="restaurant_id" name="restaurant_id"  class="form-control" value="<%= @restaurant.id %>">
+              <label for="menu_name" class="control-label">
+              </label>
+              <input type="text" id="menu_name" name="menu_name" placeholder="Menu name" class="form-control" value="">
+            </div>
+
+            <button class="btn btn-block btn-success">
+              Add a Menu
+            </button>
+          </form>
+        </div>
       </dd>
     </dl>
-
 
 
     <div class="btn-group btn-group-justified">
@@ -78,5 +76,3 @@
     </div>
   </div>
 </div>
-
-<!-- A Restaurant has many menu_listings -->

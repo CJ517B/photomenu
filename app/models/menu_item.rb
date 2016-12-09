@@ -11,6 +11,8 @@ class MenuItem < ApplicationRecord
   :class_name => "FoodPhoto",
   :dependent => :destroy
 
+  has_many :fans, :through => :bookmarks, :source => :user
+
   belongs_to :MenuCategory
   belongs_to :category
 
